@@ -5,10 +5,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CountrySearch®</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <main>
+
+        <div class="search-div">
+            <div class="container">
+                <h1>CountrySearch</h1>
+                <label for="input">Name or partial name of a country</label>
+                <input type="text" id="input">
+                <button id="btn">Search</button>
+            </div>
+        </div>
+
+        <div class="result-div">
+
+            <div class="table-div">
+            </div>
+
+            <div id="loader">
+                <svg viewbox="0 0 100 20">
+                    <defs>
+                        <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+                            <stop offset="5%" stop-color="#2c0669" />
+                            <stop offset="65%" stop-color="#ff0000" />
+                        </linearGradient>
+                        <pattern id="wave" x="0" y="0" width="120" height="20" patternUnits="userSpaceOnUse">
+                            <path id="wavePath"
+                                d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z"
+                                mask="url(#mask)" fill="url(#gradient)">
+                                <animateTransform attributeName="transform" begin="0s" dur="1.5s" type="translate"
+                                    from="0,0" to="40,0" repeatCount="indefinite" />
+                            </path>
+                        </pattern>
+                    </defs>
+                    <text text-anchor="middle" x="50" y="15" font-size="17" fill="url(#wave)"
+                        fill-opacity="0.6">LOADING</text>
+                    <text text-anchor="middle" x="50" y="15" font-size="17" fill="url(#gradient)"
+                        fill-opacity="0.1">LOADING</text>
+                </svg>
+            </div>
+
+            <div id="error-div">
+                There is no such country. <br> Try again!
+            </div>
+
+        </div>
+    </main>
+
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="modal-title"></div>
+            <button class="modal-close-buttton">&times;</button>
+        </div>
+        <div class="modal-body"></div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <footer>©2022 Zoran Karbev</footer>
+
+
+    <script src="index.js"></script>
 
 </body>
 
